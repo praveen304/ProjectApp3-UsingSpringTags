@@ -16,23 +16,23 @@ public class Part {
 	private Integer partId;
 	@Column(name="code")
 	private String partCode;
-	@Column(name="width")
+	@Column(name="width", length = 10, precision = 0)
 	private Double partWidth;
-	@Column(name="length")
+	@Column(name="length",length = 10, precision = 0)
 	private Double partlength;
-	@Column(name="height")
+	@Column(name="height",length = 10, precision = 0)
 	private Double partHeight;
-	@Column(name="cost")
+	@Column(name="cost",length = 10, precision = 0)
 	private Double partBaseCost;
-	@Column(name="currenecy")
+	@Column(name="currenecy",length = 10, precision = 0)
 	private Double baseCurrency;
-	@Column(name="umo")
+	@Column(name="uom")
 	private String partUmo;
 	@Column(name="sale")
 	private String partSale;
 	@Column(name="purchase")
 	private String partPurchase;
-	@Column(name="desc")
+	@Column(name="desccription")
 	private String partDesc;
 	
 	//0-param constructor

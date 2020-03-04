@@ -24,7 +24,7 @@ public class OrderMethodTypeServiceImpl implements OrderMethodTypeService {
 
 	@Transactional
 	public List<OrderMethodType> getAllOrderMethodTypes() {
-List<OrderMethodType> list=null;
+           List<OrderMethodType> list=null;
 		
 		//use dao
 		list=dao.getAllOrderMethodTypes();

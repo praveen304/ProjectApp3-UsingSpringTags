@@ -9,8 +9,7 @@
 </head>
 <body>
 
-	<h2 style="color: red; text-align: center">WELCOME TO SHIPMENT
-		TYPE EDIT PAGE</h2>
+	<h2 style="color: red; text-align: center">WELCOME TO SHIPMENT TYPE EDIT PAGE</h2>
 
 	<form:form action="update" method="POST" modelAttribute="OrderMethodType">
 		<pre>
