@@ -18,9 +18,9 @@
        <tr><th> HEIGHT </th><td> ${ob.partHeight }  </td></tr>
        <tr><th> COST </th><td> ${ob.partBaseCost }  </td></tr>
        <tr><th> CURRENCY </th><td> ${ob.baseCurrency }  </td></tr>
-       <tr><th> UOM </th><td> ${ob.partUmo }  </td></tr>
-       <tr><th> SALE </th><td> ${ob.partSale }  </td></tr>
-       <tr><th> PURCHASE </th><td> ${ob.partPurchase }  </td></tr>
+       <tr><th> UOM </th><td> ${ob.uomOb.uomId }  </td></tr>
+       <tr><th> SALE </th><td> ${ob.omSaleOb.orderCode }  </td></tr>
+       <tr><th> PURCHASE </th><td> ${ob.omPurchaseOb.orderCode }  </td></tr>
        <tr><th> NOTE </th><td> ${ob.partDesc }  </td></tr>
   </table><br><br>
   <a href="excel?pid=${ob.partId}"><img src="../resources/images/excel.png" width="100" height="100"/></a>&nbsp;&nbsp;&nbsp;&nbsp;

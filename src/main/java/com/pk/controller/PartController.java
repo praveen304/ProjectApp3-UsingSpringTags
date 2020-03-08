@@ -2,6 +2,7 @@ package com.pk.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pk.model.Part;
+import com.pk.service.OrderMethodTypeService;
 import com.pk.service.PartService;
+import com.pk.service.UomService;
+import com.pk.util.CommonUtil;
 import com.pk.view.PartExcelView;
 import com.pk.view.PartPdfView;
 
@@ -25,25 +29,47 @@ public class PartController {
 	@Autowired
 	private PartService service;
 	
+	@Autowired
+	private UomService uomService;
+	
+	@Autowired
+	private OrderMethodTypeService omService;
+	
+	//it will show Drop downs at UI(Register/Edit)
+	private void commonUi(Model model) {
+		List<Object[]> uomList=uomService.getUomIdAndUomModel();
+		Map<Integer,String> uomMap=CommonUtil.convert(uomList);
+		model.addAttribute("uomMap",uomMap);
+	
+		List<Object[]> omSaleList=omService.getOrderIdAndOrderCode("Sale");
+		Map<Integer,String> omSaleMap=CommonUtil.convert(omSaleList);
+		model.addAttribute("omSaleMap",omSaleMap);
+		
+		List<Object[]> omPurchaseList=omService.getOrderIdAndOrderCode("Purchase");
+		Map<Integer,String> omPurchaseMap=CommonUtil.convert(omPurchaseList);
+		model.addAttribute("omPurchaseMap",omPurchaseMap);
+		
+		
+	}
+	
 	@GetMapping("/register") // GET
 	public String ShowPart(Model model) {
 		// form backing object
 		model.addAttribute("Part", new Part());
+		commonUi(model);
 		return "PartRegister";
 	}
 
+
 	@PostMapping(value = "/save")
 	public String savePart(@ModelAttribute Part Part, Model model) {
-		int id = 0;
-		String msg = null;
-		// using service
-		id = service.savePart(Part);
-		// read msg
-		msg = "WhUser type'" + id + "'saved";
+		
+		Integer id = service.savePart(Part);
 		// save data in model attribute
-		model.addAttribute("msg", msg);
+		model.addAttribute("msg", "Part Created::"+id);
 		// form backing object
 		model.addAttribute("Part", new Part());
+		commonUi(model);
 		return "PartRegister";
 
 	}
@@ -88,6 +114,7 @@ public class PartController {
 		Part pt=service.getOnePart(id);
 		System.out.println(id);
 		model.addAttribute("Part", pt);
+		commonUi(model);
 		return "PartEdit";
 		
 	}

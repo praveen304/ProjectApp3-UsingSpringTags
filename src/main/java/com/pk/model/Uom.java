@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="UOM")
-public class UomType {
+public class Uom {
 
 	@Id
 	@GeneratedValue
@@ -22,12 +22,12 @@ public class UomType {
 	private String uomDesc;
 	
 	//O-PARAM CONSTRUCTOR 
-	public UomType() {
-		System.out.println("UomType::0-param constructor");
+	public Uom() {
+		System.out.println("Uom::0-param constructor");
 	}
 
 	//1-param constructor
-	public UomType(Integer uomId) {
+	public Uom(Integer uomId) {
 		super();
 		this.uomId = uomId;
 	}
@@ -66,7 +66,7 @@ public class UomType {
 
 	@Override
 	public String toString() {
-		return "UomType [uomId=" + uomId + ", uType=" + uType + ", uomModel=" + uomModel + ", uomDesc=" + uomDesc + "]";
+		return "Uom [uomId=" + uomId + ", uType=" + uType + ", uomModel=" + uomModel + ", uomDesc=" + uomDesc + "]";
 	}
 
 

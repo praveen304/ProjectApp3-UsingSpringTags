@@ -23,15 +23,16 @@ public class Grn {
 	@Column(name="gdesc")
 	private String grnDesc;
 	
+	//0-param constructor
 	public Grn() {
 		System.out.println("Grn::0-param constructor");
 	}
-	
+	//1-param constructor
 	public Grn(Integer grnid) {
 		super();
 		this.grnid = grnid;
 	}
-
+    //setters and getters
 	public Integer getGrnid() {
 		return grnid;
 	}
@@ -62,4 +63,12 @@ public class Grn {
 	public void setGrnDesc(String grnDesc) {
 		this.grnDesc = grnDesc;
 	}
+
+	@Override
+	public String toString() {
+		return "Grn [grnid=" + grnid + ", grnCode=" + grnCode + ", grnType=" + grnType + ", orderCode=" + orderCode
+				+ ", grnDesc=" + grnDesc + "]";
+	}
+	
+	
 }

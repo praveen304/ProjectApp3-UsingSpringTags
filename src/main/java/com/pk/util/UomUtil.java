@@ -12,7 +12,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UomTypeUtil {
+public class UomUtil {
 
 	public void generatePie(String path, List<Object[]> data) {
 		// 1.create dataset
@@ -22,7 +22,7 @@ public class UomTypeUtil {
 		dataset.setValue(arr[0].toString(),Double.valueOf(arr[1].toString()));
 		}
 		//2. Create JFreeChart using ChartFactory
-		JFreeChart chart=ChartFactory.createPieChart3D("UomTypeModes", dataset, true, true, false);
+		JFreeChart chart=ChartFactory.createPieChart3D("UomModes", dataset, true, true, false);
 		//3. save as Image using ChartUtils
 		try {
 		ChartUtils.saveChartAsJPEG(new File(path+"/resources/images/uomPie.jpg"), chart, 400, 400);
@@ -45,7 +45,7 @@ public class UomTypeUtil {
 			dataset.setValue(Double.valueOf(arr[1].toString()), arr[0].toString(), "");
 		}
 		// 2. Create JFreeChart using ChartFactory
-		JFreeChart chart = ChartFactory.createBarChart("UomTypeMode", "Modes", "COUNT", dataset);
+		JFreeChart chart = ChartFactory.createBarChart("UomMode", "Modes", "COUNT", dataset);
 		// 3. Save as Image using ChartUtil
 		try {
 			ChartUtils.saveChartAsJPEG(new File(path + "/resources/images/uomBar.jpg"), chart, 400, 400);

@@ -7,7 +7,6 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.pk.dao.PurchaseOrderDAO;
-import com.pk.model.Part;
 import com.pk.model.PurchaseOrder;
 
 @Repository

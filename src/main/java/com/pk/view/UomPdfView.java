@@ -13,9 +13,9 @@ import com.lowagie.text.Document;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.pk.model.UomType;
+import com.pk.model.Uom;
 
-public class UomTypePdfView extends AbstractPdfView {
+public class UomPdfView extends AbstractPdfView {
 
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, 
@@ -31,7 +31,7 @@ public class UomTypePdfView extends AbstractPdfView {
 		//add element to document
 		document.add(p);
 		//read data from model
-		List<UomType> list=(List<UomType>) model.get("list");
+		List<Uom> list=(List<Uom>) model.get("list");
 		//create table from no of columns
 		PdfPTable t=new PdfPTable(4);
 		t.addCell("ID");
@@ -40,7 +40,7 @@ public class UomTypePdfView extends AbstractPdfView {
 		t.addCell("NOTE");
 		
 		//add data to table
-		for(UomType st:list) {
+		for(Uom st:list) {
 			t.addCell(st.getUomId().toString());
 			t.addCell(st.getuType());
 			t.addCell(st.getUomModel());

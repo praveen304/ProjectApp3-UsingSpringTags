@@ -10,15 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="ordermethod")
 public class OrderMethodType {
 
 	@Id
-	@GeneratedValue(generator = "omidgen")
-	@GenericGenerator(name="omidgen",strategy = "increment")
+	@GeneratedValue
 	@Column(name="omid")
 	private Integer id;
 	@Column(name="ommode")

@@ -12,9 +12,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
-import com.pk.model.UomType;
+import com.pk.model.Uom;
 
-public class UomTypeExcelView extends AbstractXlsxView {
+public class UomExcelView extends AbstractXlsxView {
 
 	@Override
 	protected void buildExcelDocument(Map<String, Object> model, 
@@ -28,7 +28,7 @@ public class UomTypeExcelView extends AbstractXlsxView {
         //construct row-0
         setHeader(s);
         //read model data
-        List<UomType> list=(List<UomType>) model.get("list");
+        List<Uom> list=(List<Uom>) model.get("list");
         setBody(s,list);
 	}
 
@@ -40,9 +40,9 @@ public class UomTypeExcelView extends AbstractXlsxView {
 		r.createCell(3).setCellValue("NOTE");
 	}
 	
-    private void setBody(Sheet s, List<UomType> list) {
+    private void setBody(Sheet s, List<Uom> list) {
 		int count=1;
-		for(UomType st:list) {
+		for(Uom st:list) {
 			Row r=s.createRow(count++);
 			r.createCell(0).setCellValue(st.getUomId());
 			r.createCell(1).setCellValue(st.getuType());

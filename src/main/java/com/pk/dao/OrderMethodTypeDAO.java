@@ -13,4 +13,5 @@ public interface OrderMethodTypeDAO {
 	public void updateOrderMethodType(OrderMethodType ob);
 	
 	public List<Object[]> getOrderMethodModeCount();
+	public List<Object[]> getOrderIdAndOrderCode(String mode);
 }

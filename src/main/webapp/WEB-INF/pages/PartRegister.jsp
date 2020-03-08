@@ -21,16 +21,28 @@
                   
    Base Cost::<form:input path="partBaseCost"/>
    
-   Base Currency::<form:input path="baseCurrency"/>
-   
-   Uom:: <form:select path="partUmo">
+   Base Currency::<form:select path="baseCurrency">
 			           <form:option value="">--select--</form:option>
-			           <form:option value="NA">NA</form:option>
+			           <form:option value="INR">INR</form:option>
+			           <form:option value="DOLLAR">DOLLAR</form:option>
+			           <form:option value="POUND">POUND</form:option>
+			       </form:select>
+			       
+   Uom:: <form:select path="uomOb.uomId">
+			           <form:option value="">--select--</form:option>
+			           <form:options items="${uomMap}"/>
 			       </form:select>
 			       
    Order Method Code  
-                     sale::<form:input path="partSale"/>
-                     Purchase::<form:input path="partPurchase"/>
+                     Sale::<form:select path="omSaleOb.id" class="form-control">
+                            <form:option value="">-SELECT-</form:option>
+                            <form:options items="${omSaleMap}" />
+                         </form:select>
+                         
+                 Purchase::<form:select path="omPurchaseOb.id" class="form-control">
+                            <form:option value="">-SELECT-</form:option>
+                            <form:options items="${omPurchaseMap}" />
+                         </form:select>
                      
     Description::<form:textarea path="partDesc" ></form:textarea>  
                 

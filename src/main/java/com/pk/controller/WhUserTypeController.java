@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pk.model.ShipmentType;
-import com.pk.model.UomType;
+
 import com.pk.model.WhUserType;
 import com.pk.service.WhUserTypeService;
-import com.pk.util.UomTypeUtil;
 import com.pk.util.WhUserTypeUtil;
 import com.pk.view.WhUserTypeExcelView;
 import com.pk.view.WhUserTypePdfViwe;

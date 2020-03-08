@@ -52,9 +52,9 @@ public class PartPdfView extends AbstractPdfView {
 			t.addCell(pt.getPartHeight().toString());
 			t.addCell(pt.getPartBaseCost().toString());
 			t.addCell(pt.getBaseCurrency().toString());
-			t.addCell(pt.getPartUmo());
-			t.addCell(pt.getPartSale());
-			t.addCell(pt.getPartPurchase());
+			t.addCell(pt.getUomOb().toString());
+			t.addCell(pt.getOmSaleOb().toString());
+			t.addCell(pt.getOmPurchaseOb().toString());
 			t.addCell(pt.getPartDesc());
 			
 		}

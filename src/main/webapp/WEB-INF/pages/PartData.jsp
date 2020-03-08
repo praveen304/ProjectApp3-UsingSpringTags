@@ -36,9 +36,9 @@
                <td>${ob.partHeight }</td>
                <td>${ob.partBaseCost }</td>
                <td>${ob.baseCurrency }</td>
-               <td>${ob.partUmo }</td>
-               <td>${ob.partSale }</td>
-               <td>${ob.partPurchase }</td>
+               <td>${ob.uomOb.uomModel }</td>
+               <td>${ob.omSaleOb.orderCode }</td>
+               <td>${ob.omPurchaseOb.orderCode }</td>
                <td>${ob.partDesc }</td>    
                <td><a href="delete?pid=${ob.partId }"><img src="../resources/images/delete.jpg" width="40" height="40"/></a> &nbsp;&nbsp;&nbsp;&nbsp;  
                <a href="edit?pid=${ob.partId }"><img src="../resources/images/edit.jpg" width="40" height="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;

@@ -49,4 +49,10 @@ public class OrderMethodTypeDAOImpl implements OrderMethodTypeDAO {
 		return (List<Object[]>) ht.find(hql);
 	}
 
+	public List<Object[]> getOrderIdAndOrderCode(String mode) {
+		String hql=" select id,orderCode from com.pk.model.OrderMethodType where orderMode=?0 ";
+		List<Object[]> list=(List<Object[]>) ht.find(hql, mode);
+		return list;
+	}
+
 }
