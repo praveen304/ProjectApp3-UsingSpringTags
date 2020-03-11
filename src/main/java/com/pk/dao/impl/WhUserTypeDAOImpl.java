@@ -41,16 +41,21 @@ public class WhUserTypeDAOImpl implements WhUserTypeDAO {
 	
 	public void updateWhUserType(WhUserType ob) {
 		System.out.println(ob);
-		ht.update(ob);
+	    ht.update(ob);
 		
 	}
 
 
-	@Override
 	public List<Object[]> getWhUserTypeAndCount() {
 		String hql=" select userType,count(userType) from com.pk.model.WhUserType group by userType ";
 		return (List<Object[]>) ht.find(hql);
 		
+	}
+	
+
+	public List<Object[]> getWhUserIdAndUserCode(String userType) {
+		String hql=" select userId,userCode from "+ WhUserType.class.getName()+" where userType=?0";
+		return (List<Object[]>) ht.find(hql, userType);
 	}
 
 }

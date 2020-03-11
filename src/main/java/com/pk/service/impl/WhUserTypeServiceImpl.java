@@ -44,7 +44,7 @@ public class WhUserTypeServiceImpl implements WhUserTypeService {
 		return dao.getOneWhUserType(Id);
 	}
 
-	@Transactional(readOnly=true)
+	@Transactional
 	public void updateWhUserType(WhUserType ob) {
 		  dao.updateWhUserType(ob);
 		
@@ -53,6 +53,11 @@ public class WhUserTypeServiceImpl implements WhUserTypeService {
 	@Transactional(readOnly=true)
 	public List<Object[]> getWhUserTypeAndCount() {
 		return dao.getWhUserTypeAndCount();
+	}
+	
+	@Transactional(readOnly=true)
+	public List<Object[]> getWhUserIdAndUserCode(String userType) {
+		return dao.getWhUserIdAndUserCode(userType);
 	}
 
 }

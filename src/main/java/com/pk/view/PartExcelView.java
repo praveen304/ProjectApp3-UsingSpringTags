@@ -56,8 +56,8 @@ public class PartExcelView extends AbstractXlsxView {
 			r.createCell(5).setCellValue(pt.getPartBaseCost());
 			r.createCell(6).setCellValue(pt.getBaseCurrency());
 			r.createCell(7).setCellValue(pt.getUomOb().toString());
-			r.createCell(8).setCellValue(pt.getOmSaleOb().toString());
-			r.createCell(9).setCellValue(pt.getPartPurchase());
+			r.createCell(8).setCellValue(pt.getOmSaleOb().getOrderCode());
+			r.createCell(9).setCellValue(pt.getOmPurchaseOb().getOrderCode());
 			r.createCell(10).setCellValue(pt.getPartDesc());
 		}
 		

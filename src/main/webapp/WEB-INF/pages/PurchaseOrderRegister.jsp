@@ -14,14 +14,14 @@
      
      Order Code::<form:input path="orderCode"/>
      
-     Shipment Code::<form:select path="shipCode">
+     Shipment Code::<form:select path="shipmentOb.shipId">
 			           <form:option value="">--select--</form:option>
-			           <form:option value="NA">NA</form:option>
+			           <form:options items="${shipMap }" />
 			       </form:select>
 	
-	 Vendor::<form:select path="vendor">
+	 Vendor::<form:select path="vendorOb.userId">
 			           <form:option value="">--select--</form:option>
-			           <form:option value="NA">NA</form:option>
+			           <form:options items="${whVendorMap }" />
 			       </form:select>
 			       
      Reference Number::<form:input path="refNum"/>
@@ -30,7 +30,7 @@
 	                 <form:radiobutton path="qntyCheck" value="Not-Required"/>Not-Required 
      
      
-     Default Status::<form:input path="defaultStatus"/>
+     Default Status::<form:input path="defaultStatus" readonly="true"/>
      
      Description::<form:textarea path="desc" ></form:textarea>  
                 

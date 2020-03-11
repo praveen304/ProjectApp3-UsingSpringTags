@@ -12,8 +12,8 @@
   <table border="1">
        <tr><th> ID </th><td> ${ob.pid } </td></tr>
        <tr><th> ORDER-CODE </th><td> ${ob.orderCode }  </td></tr>
-       <tr><th> SHIPMENT-CODE </th><td> ${ob.shipCode}  </td></tr>
-       <tr><th> VENDOR </th><td> ${ob.vendor }  </td></tr>
+       <tr><th> SHIPMENT-CODE </th><td> ${ob.shipmentOb.shipCode}  </td></tr>
+       <tr><th> VENDOR </th><td> ${ob.vendorOb.userId }  </td></tr>
        <tr><th> RefNUMBER </th><td> ${ob.refNum }  </td></tr>
        <tr><th> QUNTATY-CHECK </th><td> ${ob.qntyCheck }  </td></tr>
        <tr><th> STATUS </th><td> ${ob.defaultStatus }  </td></tr>

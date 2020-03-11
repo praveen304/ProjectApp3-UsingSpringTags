@@ -50,5 +50,13 @@ public class ShipmentDAOImpl implements ShipmentTypeDAO {
 	}
 
 
+	public List<Object[]> getShipIdAndShipCode() {
+		String hql=" select shipId,shipCode from "+ ShipmentType.class.getName() + " where enbShip='YES' ";
+		List<Object[]> list=(List<Object[]>) ht.find(hql);
+		return list;
+		
+	}
+
+
 	
 }

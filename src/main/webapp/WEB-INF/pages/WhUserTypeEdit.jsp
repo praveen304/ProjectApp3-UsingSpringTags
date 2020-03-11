@@ -12,6 +12,7 @@
 <form:form action="update" method="POST" modelAttribute="WhUserType">
 <pre>
      id::<form:input path="userId" readonly="true"/>
+     
     User Type::<form:radiobutton path="userType" value="Vendor"/>Vendor
 	           <form:radiobutton path="userType" value="Customer"/>Customer 
 	               

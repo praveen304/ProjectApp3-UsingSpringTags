@@ -34,11 +34,11 @@ public class ShipmentTypeServiceImpl implements ShipmentTypeService {
 		//use dao
 		dao.deleteShipmentType(id);
 	}
-	@Transactional
+	@Transactional(readOnly = true)
 	public ShipmentType getOneShipmentType(Integer Id) {
 		return dao.getOneShipmentType(Id);
 	}
-	@Transactional(readOnly = true)
+	@Transactional
 	public void updateShipmentType(ShipmentType ob) {
 	     dao.updateShipmentType(ob);
 		
@@ -49,5 +49,8 @@ public class ShipmentTypeServiceImpl implements ShipmentTypeService {
 		return dao.getShipmentModeCount();
 	}
 
-
+	@Transactional(readOnly = true)
+    public List<Object[]> getShipIdAndShipCode() {
+	return dao.getShipIdAndShipCode();
+}
 }

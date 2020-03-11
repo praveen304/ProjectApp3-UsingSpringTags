@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,10 +18,6 @@ public class PurchaseOrder {
 	private Integer pid;
 	@Column(name="odcode")
 	private String orderCode;
-	@Column(name="scode")
-	private String shipCode;
-	@Column(name="vendor")
-	private String vendor;
 	@Column(name="refnum")
 	private String refNum;
 	@Column(name="qntycheck")
@@ -28,6 +26,14 @@ public class PurchaseOrder {
 	private String defaultStatus;
 	@Column(name="pdesc")
 	private String desc;
+	
+	@ManyToOne
+	@JoinColumn(name="shipmentIdFK")
+	private ShipmentType shipmentOb;  //HAS-A
+	
+	@ManyToOne
+	@JoinColumn(name="vendorIdFK")
+	private WhUserType vendorOb;  //HAS-A
 	
 	//0-param constructor
 	public PurchaseOrder() {
@@ -38,8 +44,8 @@ public class PurchaseOrder {
 		super();
 		this.pid = pid;
 	}
-
-
+	
+	//getters and setters
 	public Integer getPid() {
 		return pid;
 	}
@@ -51,18 +57,6 @@ public class PurchaseOrder {
 	}
 	public void setOrderCode(String orderCode) {
 		this.orderCode = orderCode;
-	}
-	public String getShipCode() {
-		return shipCode;
-	}
-	public void setShipCode(String shipCode) {
-		this.shipCode = shipCode;
-	}
-	public String getVendor() {
-		return vendor;
-	}
-	public void setVendor(String vendor) {
-		this.vendor = vendor;
 	}
 	public String getRefNum() {
 		return refNum;
@@ -88,14 +82,24 @@ public class PurchaseOrder {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+	public ShipmentType getShipmentOb() {
+		return shipmentOb;
+	}
+	public void setShipmentOb(ShipmentType shipmentOb) {
+		this.shipmentOb = shipmentOb;
+	}
+	public WhUserType getVendorOb() {
+		return vendorOb;
+	}
+	public void setVendorOb(WhUserType vendorOb) {
+		this.vendorOb = vendorOb;
+	}
 	@Override
 	public String toString() {
-		return "PurchaseOrder [pid=" + pid + ", OrderCode=" + orderCode + ", ShipCode=" + shipCode + ", vendor="
-				+ vendor + ", refNum=" + refNum + ", qntyCheck=" + qntyCheck + ", defaultStatus=" + defaultStatus
-				+ ", desc=" + desc + "]";
+		return "PurchaseOrder [pid=" + pid + ", orderCode=" + orderCode + ", refNum=" + refNum + ", qntyCheck="
+				+ qntyCheck + ", defaultStatus=" + defaultStatus + ", desc=" + desc + ", shipmentOb=" + shipmentOb
+				+ ", vendorOb=" + vendorOb + "]";
 	}
 
-	
-	
 	
 }

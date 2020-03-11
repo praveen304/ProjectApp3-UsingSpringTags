@@ -2,6 +2,7 @@ package com.pk.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pk.model.PurchaseOrder;
 import com.pk.service.PurchaseOrderService;
+import com.pk.service.ShipmentTypeService;
+import com.pk.service.WhUserTypeService;
+import com.pk.util.CommonUtil;
 import com.pk.view.PurchaseOrderExcelView;
 import com.pk.view.PurchaseOrderPdfView;
 
@@ -25,10 +29,30 @@ public class PurchaseOrderController {
 	@Autowired
 	private PurchaseOrderService service;
 	
+	@Autowired
+	private ShipmentTypeService shipService;
+	
+	@Autowired
+	private WhUserTypeService whService;
+	
+	//it will show Drop downs at UI(Register/Edit)
+	private void commonUi(Model model) {
+		List<Object[]> shipList=shipService.getShipIdAndShipCode();
+		Map<Integer,String> shipMap=CommonUtil.convert(shipList);
+		model.addAttribute("shipMap",shipMap);
+		
+		List<Object[]> whVendorList=whService.getWhUserIdAndUserCode("Vendor");
+		Map<Integer,String> whVendorMap=CommonUtil.convert(whVendorList);
+		model.addAttribute("whVendorMap",whVendorMap);
+	}
+		
 	@GetMapping("/register") // GET
 	public String ShowPurchaseOrder(Model model) {
+		PurchaseOrder po=new PurchaseOrder();
+		po.setDefaultStatus("OPEN");
 		// form backing object
-		model.addAttribute("PurchaseOrder", new PurchaseOrder());
+		model.addAttribute("PurchaseOrder",po);
+		commonUi(model);
 		return "PurchaseOrderRegister";
 	}
 
@@ -44,6 +68,7 @@ public class PurchaseOrderController {
 		model.addAttribute("msg", msg);
 		// form backing object
 		model.addAttribute("PurchaseOrder", new PurchaseOrder());
+		commonUi(model);
 		return "PurchaseOrderRegister";
 
 	}
@@ -88,6 +113,7 @@ public class PurchaseOrderController {
 		PurchaseOrder pt=service.getOnePurchaseOrder(id);
 		System.out.println(id);
 		model.addAttribute("PurchaseOrder", pt);
+		commonUi(model);
 		return "PurchaseOrderEdit";
 		
 	}

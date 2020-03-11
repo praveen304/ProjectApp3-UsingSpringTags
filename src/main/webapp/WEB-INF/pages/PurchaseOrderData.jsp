@@ -16,7 +16,7 @@
             <tr >
                <th>ID</th>
                <th>ORDER-CODE</th>
-               <th>SHIPMENT-Code</th>
+               <th>SHIPMENT-CODE</th>
                <th>VENDOR</th>
                <th>RefNUMBER</th>
                <th>QNTY-CHECK</th>
@@ -27,8 +27,8 @@
              <tr>
                <td>${ob.pid }</td>
                <td>${ob.orderCode }</td>
-               <td>${ob.shipCode }</td>
-               <td>${ob.vendor }</td>
+               <td>${ob.shipmentOb.shipCode }</td>
+               <td>${ob.vendorOb.userId  }</td>
                <td>${ob.refNum }</td>
                <td>${ob.qntyCheck }</td>
                <td>${ob.defaultStatus }</td>
